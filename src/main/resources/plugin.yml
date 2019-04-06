@@ -1,0 +1,4 @@
+name: ${pom.artifactId}
+version: ${pom.version}
+main: io.github.johnnypixelz.anvilrepair.AnvilRepair
+author: JohnnyPixelz
