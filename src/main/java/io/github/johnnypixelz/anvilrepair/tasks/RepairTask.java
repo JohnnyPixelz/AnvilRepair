@@ -1,10 +1,7 @@
 package io.github.johnnypixelz.anvilrepair.tasks;
 
 import io.github.johnnypixelz.anvilrepair.AnvilRepair;
-import org.bukkit.ChatColor;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.Item;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -48,7 +45,7 @@ public class RepairTask extends BukkitRunnable {
 
         double random1 = ThreadLocalRandom.current().nextDouble(1.9, 2.1);
         item.getWorld().playEffect(item.getLocation(), Effect.STEP_SOUND, 1);
-        location.getWorld().playSound(location, Sound.ANVIL_LAND, 1, (float)random1);
+        location.getWorld().playSound(location, Bukkit.getVersion().contains("1.8") ? Sound.valueOf("ANVIL_LAND") : Sound.valueOf("BLOCK_ANVIL_LAND"), 1, (float)random1);
         item.setCustomName(item.getCustomName()+ChatColor.translateAlternateColorCodes('&', AnvilRepair.plugin.getConfig().getString("formats.repairItemNamePerTick")));
         executions++;
     }
